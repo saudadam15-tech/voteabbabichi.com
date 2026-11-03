@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hon. Abubakar Kabir Abubakar (Abba Bichi) | Official Constituency & Campaign Portal</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            600: '#2563eb',
+                            800: '#1e40af',
+                            900: '#1e3a8a', // APC Blue Primary
+                        },
+                        secondary: {
+                            500: '#ef4444',
+                            600: '#dc2626', // Action Red
+                            700: '#b91c1c',
+                        },
+                        accent: {
+                            500: '#10b981', // Growth Green
+                            600: '#059669',
+                        },
+                        darkslate: '#0f172a'
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                        'marquee-fast': 'marquee 15s linear infinite',
+                        'pulse-glow': 'pulseGlow 2s infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: 1, boxShadow: '0 0 15px rgba(220, 38, 38, 0.6)' },
+                            '50%': { opacity: 0.8, boxShadow: '0 0 5px rgba(220, 38, 38, 0.2)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbars */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #1e3a8a;
+        }
+        .backdrop-blur-md {
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans antialiased overflow-x-hidden">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-blue-900 via-primary-900 to-slate-900 text-white text-xs sm:text-sm py-2 px-4 border-b border-blue-800/40 relative z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2 truncate">
+                <span class="flex h-2 w-2 relative">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                </span>
+                <span class="font-bold text-red-400 uppercase tracking-wider text-[10px] sm:text-xs">Live Update:</span>
+                <span class="text-slate-200 truncate">Constituency Stakeholders & Empowerment Meeting taking place this Saturday in Bichi Town.</span>
+            </div>
+            <a href="#events" onclick="playAudioClick()" class="hidden md:inline-flex items-center text-xs font-semibold text-blue-300 hover:text-white transition group">
+                <span>View Event Schedule</span>
+                <i class="fas font-thin fa-arrow-right ml-1 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Running Campaign Slogan Marquee Banner -->
+    <div class="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white border-b border-slate-800 overflow-hidden py-3 shadow-inner relative">
+        <div class="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-slate-950 to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-slate-950 to-transparent z-10 pointer-events-none"></div>
+        
+        <div class="flex whitespace-nowrap animate-marquee hover:[animation-play-state:paused] cursor-pointer">
+            <div class="flex items-center space-x-8 text-sm sm:text-base font-bold tracking-wide text-slate-200">
+                <span class="flex items-center text-red-400"><i class="fas fa-star text-xs text-yellow-400 mr-2"></i> ACTION OVER WORDS</span>
+                <span class="text-slate-600">•</span>
+                <span class="flex items-center text-blue-300"><i class="fas fa-bolt text-xs text-blue-400 mr-2"></i> EMPOWERING BICHI, BUILDING TOMORROW</span>
+                <span class="text-slate-600">•</span>
+                <span class="flex items-center text-emerald-400"><i class="fas fa-graduation-cap text-xs text-emerald-400 mr-2"></i> QUALITY EDUCATION & YOUTH GRANTS</span>
+                <span class="text-slate-600">•</span>
+                <span class="flex items-center text-yellow-300"><i class="fas fa-hand-holding-heart text-xs text-yellow-400 mr-2"></i> DIVIDENDS OF DEMOCRACY FOR ALL</span>
+                <span class="text-slate-600">•</span>
+                <span class="flex items-center text-blue-400"><i class="fas fa-building text-xs text-blue-300 mr-2"></i> EFFECTIVE LEGISLATIVE REPRESENTATION</span>
+                <span class="text-slate-600">•</span>
+            </div>
+            <!-- Duplicate for seamless looping -->
+            <div class="flex items-center space-x-8 text-sm sm:text-base font-bold tracking-wide text-slate-200">
+                <span class="flex items-center text-red-400"><i class="fas fa-star text-xs text-yellow-400 mr-2"></i> ACTION OVER WORDS</span>
+                <span class="text-slate-600">•</span>
+                <span class="flex items-center text-blue-300"><i class="fas fa-bolt text-xs text-blue-400 mr-2"></i> EMPOWERING BICHI, BUILDING TOMORROW</span>
+                <span class="text-slate-600">•</span>
+                <span class="flex items-center text-emerald-400"><i class="fas fa-graduation-cap text-xs text-emerald-400 mr-2"></i> QUALITY EDUCATION & YOUTH GRANTS</span>
+                <span class="text-slate-600">•</span>
+                <span class="flex items-center text-yellow-300"><i class="fas fa-hand-holding-heart text-xs text-yellow-400 mr-2"></i> DIVIDENDS OF DEMOCRACY FOR ALL</span>
+                <span class="text-slate-600">•</span>
+                <span class="flex items-center text-blue-400"><i class="fas fa-building text-xs text-blue-300 mr-2"></i> EFFECTIVE LEGISLATIVE REPRESENTATION</span>
+                <span class="text-slate-600">•</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <nav class="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center space-x-3 group" onclick="playAudioClick()">
+                    <div class="bg-gradient-to-br from-primary-600 to-primary-900 text-white font-black text-2xl w-12 h-12 rounded-xl shadow-lg flex items-center justify-center border border-blue-400/30 group-hover:scale-105 transition-transform">
+                        AB
+                    </div>
+                    <div>
+                        <span class="block font-black text-xl text-white leading-none tracking-tight">HON. ABBA BICHI</span>
+                        <span class="text-[10px] text-blue-400 uppercase tracking-widest font-bold">Bichi Federal Constituency</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu Links -->
+                <div class="hidden lg:flex items-center space-x-8 font-medium text-sm text-slate-300">
+                    <a href="#stats" class="hover:text-blue-400 transition" onclick="playAudioClick()">Impact</a>
+                    <a href="#projects" class="hover:text-blue-400 transition" onclick="playAudioClick()">Projects Showcase</a>
+                    <a href="#media" class="hover:text-blue-400 transition" onclick="playAudioClick()">Media & Speeches</a>
+                    <a href="#agenda" class="hover:text-blue-400 transition" onclick="playAudioClick()">Legislative Agenda</a>
+                    <a href="#gallery" class="hover:text-blue-400 transition" onclick="playAudioClick()">Photo Gallery</a>
+                    <a href="#engagement" class="hover:text-blue-400 transition" onclick="playAudioClick()">Portal</a>
+                </div>
+
+                <!-- Call To Action -->
+                <div class="hidden sm:flex items-center space-x-3">
+                    <a href="#engagement" onclick="switchToTab('volunteer'); playAudioClick();" class="bg-secondary-600 hover:bg-secondary-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-lg shadow-red-900/20 transition transform hover:-translate-y-0.5 flex items-center space-x-2">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <span>Get Involved</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Hamburger Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="menu-btn" class="text-slate-300 hover:text-white p-2 rounded-lg focus:outline-none" aria-label="Toggle menu">
+                        <i class="fas fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-900 border-b border-slate-800 px-6 pt-2 pb-6 space-y-3 transition-all duration-300">
+            <a href="#stats" class="block py-2 text-slate-300 hover:text-blue-400 font-medium" onclick="toggleMobileMenu()">Impact & Stats</a>
+            <a href="#projects" class="block py-2 text-slate-300 hover:text-blue-400 font-medium" onclick="toggleMobileMenu()">Executed Projects</a>
+            <a href="#media" class="block py-2 text-slate-300 hover:text-blue-400 font-medium" onclick="toggleMobileMenu()">Multimedia Speeches</a>
+            <a href="#agenda" class="block py-2 text-slate-300 hover:text-blue-400 font-medium" onclick="toggleMobileMenu()">Legislative Agenda</a>
+            <a href="#gallery" class="block py-2 text-slate-300 hover:text-blue-400 font-medium" onclick="toggleMobileMenu()">Photo Gallery</a>
+            <a href="#engagement" class="block py-2 text-slate-300 hover:text-blue-400 font-medium" onclick="toggleMobileMenu()">Constituent Portal</a>
+            <div class="pt-2">
+                <a href="#engagement" onclick="switchToTab('volunteer'); toggleMobileMenu();" class="block text-center bg-secondary-600 text-white py-3 rounded-xl font-bold shadow-lg">
+                    Join Campaign Movement
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white overflow-hidden py-16 lg:py-28 border-b border-slate-800">
+        <!-- Ambient background glows -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/3 right-10 w-[300px] h-[300px] bg-red-600/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Hero Content -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center space-x-2 bg-blue-950/80 border border-blue-700/40 rounded-full px-4 py-1.5 shadow-sm">
+                    <i class="fas fa-certificate text-blue-400 text-xs"></i>
+                    <span class="text-xs font-semibold text-blue-300 uppercase tracking-widest">Official Representative — House of Representatives</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-none text-white">
+                    Delivering Dividends of Democracy to <span class="bg-gradient-to-r from-blue-400 via-blue-200 to-red-400 bg-clip-text text-transparent">Bichi Constituency</span>
+                </h1>
+
+                <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
+                    Transforming grassroots communities through accountable leadership, sustainable infrastructure, healthcare, youth capacity development, and educational investments.
+                </p>
+
+                <!-- Hero Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-3 sm:space-y-0 sm:space-x-4 pt-4">
+                    <a href="#projects" onclick="playAudioClick()" class="w-full sm:w-auto bg-primary-600 hover:bg-primary-700 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-blue-900/40 transition transform hover:-translate-y-0.5 flex items-center justify-center space-x-2">
+                        <span>Explore Executed Projects</span>
+                        <i class="fas fa-arrow-down text-sm"></i>
+                    </a>
+                    <a href="#media" onclick="playAudioClick()" class="w-full sm:w-auto bg-slate-800/80 hover:bg-slate-800 border border-slate-700 text-slate-200 font-bold px-8 py-4 rounded-xl transition flex items-center justify-center space-x-2">
+                        <i class="fas fa-play text-red-500 text-xs"></i>
+                        <span>Watch Highlights & Speeches</span>
+                    </a>
+                </div>
+
+                <!-- Quick Badge Stats Bar -->
+                <div class="pt-6 grid grid-cols-3 gap-4 border-t border-slate-800/80 mt-8 text-center lg:text-left">
+                    <div>
+                        <span class="block text-xl sm:text-2xl font-black text-white">100%</span>
+                        <span class="text-xs text-slate-400 font-medium">Commitment to Bichi</span>
+                    </div>
+                    <div>
+                        <span class="block text-xl sm:text-2xl font-black text-emerald-400">11 Wards</span>
+                        <span class="text-xs text-slate-400 font-medium">Direct Direct Intervention</span>
+                    </div>
+                    <div>
+                        <span class="block text-xl sm:text-2xl font-black text-blue-400">50+</span>
+                        <span class="text-xs text-slate-400 font-medium">Active Key Projects</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Hero Card / Candidate Presentation -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-full max-w-md">
+                    <!-- Glow Outline -->
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-red-600 rounded-3xl blur opacity-30 animate-pulse"></div>
+                    
+                    <div class="relative bg-slate-950 border border-slate-800 rounded-2xl p-6 shadow-2xl overflow-hidden">
+                        
+                        <!-- Visual Header Avatar Tag with Portrait Photo -->
+                        <div class="relative rounded-xl overflow-hidden bg-gradient-to-b from-blue-900 to-slate-900 p-6 text-center flex flex-col items-center border border-blue-500/20">
+                            <div class="relative w-36 h-36 mb-4">
+                                <img src="Potrait.jpg" alt="Hon. Abubakar Kabir Abubakar (Abba Bichi)" class="w-full h-full object-cover object-top rounded-full border-4 border-blue-500/40 shadow-xl">
+                                <span class="absolute bottom-1 right-1 w-7 h-7 bg-emerald-500 border-2 border-slate-900 rounded-full flex items-center justify-center text-xs text-white shadow" title="Active Servant Leader">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                            </div>
+                            <h3 class="text-2xl font-extrabold text-white tracking-tight">Hon. Abubakar Kabir Abubakar</h3>
+                            <p class="text-blue-400 font-semibold text-xs mt-1 uppercase tracking-wider">Abba Bichi (MHR)</p>
+                            <p class="text-slate-400 text-xs mt-3 italic leading-relaxed">
+                                "True legislative representation lies in constant touch with the grassroots and transforming public resources into tangible standard of living improvements."
+                            </p>
+                        </div>
+
+                        <!-- Audio Message Widget Player inside Hero -->
+                        <div class="mt-4 bg-slate-900/90 border border-slate-800 rounded-xl p-4 flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <button id="heroAudioBtn" onclick="toggleHeroAudio()" class="w-10 h-10 bg-red-600 hover:bg-red-700 rounded-full flex items-center justify-center text-white transition shadow-md">
+                                    <i class="fas fa-play text-xs ml-0.5" id="heroAudioIcon"></i>
+                                </button>
+                                <div>
+                                    <span class="block text-xs font-bold text-slate-200">Listen to Audio Message</span>
+                                    <span class="text-[10px] text-slate-400" id="heroAudioStatus">Constituency Briefing (0:45)</span>
+                                </div>
+                            </div>
+                            <i class="fas fa-volume-high text-slate-500 text-sm"></i>
+                        </div>
+
+                        <!-- Social Quick Links -->
+                        <div class="mt-4 flex justify-around text-slate-400 text-sm pt-2">
+                            <a href="#" class="hover:text-blue-400 transition" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="hover:text-blue-400 transition" title="X"><i class="fab fa-x"></i></a>
+                            <a href="#" class="hover:text-blue-400 transition" title="Instagram"><i class="fab fa-instagram"></i></a>
+			    <a href="#" class="hover:text-blue-400 transition" title="Tiktok"><i class="fab fa-tiktok"></i></a>
+                            <a href="#" class="hover:text-blue-400 transition" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Dynamic Impact Counters / Stat Tracker Section -->
+    <section id="stats" class="py-16 bg-slate-950 border-b border-slate-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold text-red-500 uppercase tracking-widest">Measurable Results</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-white mt-1">Impact at a Glance</h2>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Counter 1 -->
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 text-center hover:border-blue-500/40 transition group">
+                    <div class="w-12 h-12 bg-blue-900/30 text-blue-400 rounded-xl flex items-center justify-center mx-auto mb-3 text-xl group-hover:scale-110 transition-transform">
+                        <i class="fas fa-faucet-drip"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white counter" data-target="50">0</div>
+                    <span class="text-blue-400 font-bold text-sm">+</span>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1 font-medium">Solar Boreholes Completed</p>
+                </div>
+
+                <!-- Counter 2 -->
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 text-center hover:border-emerald-500/40 transition group">
+                    <div class="w-12 h-12 bg-emerald-900/30 text-emerald-400 rounded-xl flex items-center justify-center mx-auto mb-3 text-xl group-hover:scale-110 transition-transform">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white counter" data-target="120">0</div>
+                    <span class="text-emerald-400 font-bold text-sm">+</span>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1 font-medium">Classroom Blocks Furnished</p>
+                </div>
+
+                <!-- Counter 3 -->
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 text-center hover:border-yellow-500/40 transition group">
+                    <div class="w-12 h-12 bg-yellow-900/30 text-yellow-400 rounded-xl flex items-center justify-center mx-auto mb-3 text-xl group-hover:scale-110 transition-transform">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white counter" data-target="5000">0</div>
+                    <span class="text-yellow-400 font-bold text-sm">+</span>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1 font-medium">Youths & Women Empowered</p>
+                </div>
+
+                <!-- Counter 4 -->
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 text-center hover:border-red-500/40 transition group">
+                    <div class="w-12 h-12 bg-red-900/30 text-red-400 rounded-xl flex items-center justify-center mx-auto mb-3 text-xl group-hover:scale-110 transition-transform">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white counter" data-target="35">0</div>
+                    <span class="text-red-400 font-bold text-sm"> KM</span>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1 font-medium">Rural & Urban Roads Built</p>
+                </div>
+		<!-- Counter 5 -->
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 text-center hover:border-red-500/40 transition group">
+                    <div class="w-12 h-12 bg-red-900/30 text-red-400 rounded-xl flex items-center justify-center mx-auto mb-3 text-xl group-hover:scale-110 transition-transform">
+                        <i class="fas fa-Add2"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white counter" data-target="35">0</div>
+                    <span class="text-red-400 font-bold text-sm">+</span>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1 font-medium">Addational box1</p>
+                </div>
+		<!-- Counter 6 -->
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 text-center hover:border-red-500/40 transition group">
+                    <div class="w-12 h-12 bg-red-900/30 text-red-400 rounded-xl flex items-center justify-center mx-auto mb-3 text-xl group-hover:scale-110 transition-transform">
+                        <i class="fas fa-Add1"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white counter" data-target="35">0</div>
+                    <span class="text-red-400 font-bold text-sm">+</span>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1 font-medium">Addational box2</p>
+                </div>
+		<!-- Counter 5 -->
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 text-center hover:border-red-500/40 transition group">
+                    <div class="w-12 h-12 bg-red-900/30 text-red-400 rounded-xl flex items-center justify-center mx-auto mb-3 text-xl group-hover:scale-110 transition-transform">
+                        <i class="fas fa-Add3"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white counter" data-target="35">0</div>
+                    <span class="text-red-400 font-bold text-sm">+</span>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1 font-medium">Addational box3</p>
+                </div>
+		<!-- Counter 5 -->
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 text-center hover:border-red-500/40 transition group">
+                    <div class="w-12 h-12 bg-red-900/30 text-red-400 rounded-xl flex items-center justify-center mx-auto mb-3 text-xl group-hover:scale-110 transition-transform">
+                        <i class="fas fa-Add4"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white counter" data-target="35">0</div>
+                    <span class="text-red-400 font-bold text-sm">+</span>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1 font-medium">Addational box4</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executed Projects Interactive Showcase -->
+    <section id="projects" class="py-20 bg-slate-900 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
+                <div>
+                    <span class="text-xs font-bold text-blue-400 uppercase tracking-widest">Track Record</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">Executed Projects Showcase</h2>
+                    <p class="text-slate-400 text-sm mt-2 max-w-xl">Filter and inspect verified developmental interventions implemented across Bichi LGA wards.</p>
+                </div>
+
+                <!-- Project Filters -->
+                <div class="flex flex-wrap gap-2 mt-6 md:mt-0" id="project-filters">
+                    <button onclick="filterProjects('all', this)" class="px-4 py-2 rounded-xl text-xs font-bold bg-primary-600 text-white transition shadow-sm border border-blue-500/30 filter-btn active">
+                        All Projects
+                    </button>
+                    <button onclick="filterProjects('infrastructure', this)" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition filter-btn border border-slate-700">
+                        Infrastructure
+                    </button>
+                    <button onclick="filterProjects('education', this)" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition filter-btn border border-slate-700">
+                        Education
+                    </button>
+                    <button onclick="filterProjects('empowerment', this)" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition filter-btn border border-slate-700">
+                        Youth Grants
+                    </button>
+                    <button onclick="filterProjects('water', this)" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition filter-btn border border-slate-700">
+                        Water & Sanitation
+                    </button>
+                </div>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                <!-- Projects will be dynamically populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Multimedia Section: Custom Video Showcase & Audio Speech Player -->
+    <section id="media" class="py-20 bg-slate-950 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-xs font-bold text-red-500 uppercase tracking-widest"><i class="fas fa-video mr-1"></i> Multimedia Center</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">Speeches, Videos & Media Highlights</h2>
+                <p class="text-slate-400 text-sm mt-2">Watch key House of Representatives debates, constituency project flag-offs, and listen to voice broadcasts.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Main Featured Interactive Video Player Component -->
+                <div class="lg:col-span-8 bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl">
+                    <div class="relative bg-black aspect-video flex items-center justify-center group overflow-hidden" id="video-container">
+                        
+                        <!-- Visual Mockup Canvas/Poster for Video -->
+                        <div id="video-poster" class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1200&q=80');">
+                            <div class="absolute inset-0 bg-slate-950/60 flex flex-col justify-between p-6">
+                                <span class="inline-block bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider self-start">
+                                    Featured Video Briefing
+                                </span>
+                                <div>
+                                    <h3 class="text-xl sm:text-2xl font-bold text-white mb-1" id="current-video-title">Plenary Debate: Sponsoring Infrastructure Development Bills</h3>
+                                    <p class="text-xs text-slate-300" id="current-video-desc">Hon. Abubakar Kabir Abubakar addressing the House on rural road networks and power grid extension.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Video Overlay Play Button -->
+                        <button onclick="playMainVideo()" id="video-play-btn" class="relative z-10 w-20 h-20 bg-red-600 hover:bg-red-700 text-white rounded-full flex items-center justify-center text-2xl shadow-2xl transition transform hover:scale-110 focus:outline-none">
+                            <i class="fas fa-play ml-1"></i>
+                        </button>
+
+                        <!-- Video Player simulation overlay when playing -->
+                        <div id="video-playing-state" class="hidden absolute inset-0 bg-slate-950 flex flex-col items-center justify-center p-6 text-center">
+                            <div class="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mb-4"></div>
+                            <p class="text-white font-bold text-lg">Playing Video Stream...</p>
+                            <p class="text-slate-400 text-xs mt-1">"Constituency Keynote Speech — House of Reps Session"</p>
+                            <button onclick="stopMainVideo()" class="mt-6 bg-slate-800 hover:bg-slate-700 text-xs text-white px-4 py-2 rounded-lg border border-slate-700">
+                                <i class="fas fa-stop mr-1"></i> Close Stream
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Video Details Controls -->
+                    <div class="p-6 bg-slate-900 flex flex-wrap justify-between items-center border-t border-slate-800">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-circle-info text-blue-400"></i>
+                            <span class="text-xs text-slate-300">Official House of Representatives Channel</span>
+                        </div>
+                        <div class="flex space-x-3 text-xs">
+                            <button onclick="shareMedia()" class="text-slate-400 hover:text-white transition flex items-center space-x-1">
+                                <i class="fas fa-share-alt"></i> <span>Share</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Playlist & Audio Podcast Hub -->
+                <div class="lg:col-span-4 space-y-4">
+                    <h3 class="text-sm font-bold text-slate-300 uppercase tracking-wider mb-2 flex items-center">
+                        <i class="fas fa-list-ul mr-2 text-blue-400"></i> Media Playlist
+                    </h3>
+
+                    <!-- Playlist Item 1 -->
+                    <div onclick="selectVideo(1)" class="bg-slate-900 border border-slate-800 hover:border-blue-500/50 rounded-xl p-3 cursor-pointer transition flex space-x-3 group active-video-item">
+                        <div class="w-24 h-16 bg-slate-800 rounded-lg overflow-hidden relative flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=300&q=80" alt="Debate" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-slate-950/40 flex items-center justify-center">
+                                <i class="fas fa-play text-xs text-white"></i>
+                            </div>
+                        </div>
+                        <div class="overflow-hidden">
+                            <h4 class="text-xs font-bold text-white group-hover:text-blue-400 transition truncate">Plenary Debate: Sponsoring Infrastructure Bills</h4>
+                            <span class="text-[10px] text-slate-400 block mt-1"><i class="far fa-clock mr-1"></i> 3:45 mins</span>
+                        </div>
+                    </div>
+
+                    <!-- Playlist Item 2 -->
+                    <div onclick="selectVideo(2)" class="bg-slate-900 border border-slate-800 hover:border-blue-500/50 rounded-xl p-3 cursor-pointer transition flex space-x-3 group">
+                        <div class="w-24 h-16 bg-slate-800 rounded-lg overflow-hidden relative flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?auto=format&fit=crop&w=300&q=80" alt="Flagoff" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-slate-950/40 flex items-center justify-center">
+                                <i class="fas fa-play text-xs text-white"></i>
+                            </div>
+                        </div>
+                        <div class="overflow-hidden">
+                            <h4 class="text-xs font-bold text-white group-hover:text-blue-400 transition truncate">Flag-off of Mega Youth Grant Empowerment</h4>
+                            <span class="text-[10px] text-slate-400 block mt-1"><i class="far fa-clock mr-1"></i> 5:20 mins</span>
+                        </div>
+                    </div>
+
+                    <!-- Audio Message Broadcast Widget Box -->
+                    <div class="mt-6 bg-gradient-to-br from-blue-950 to-slate-900 border border-blue-800/40 rounded-xl p-5 shadow-lg">
+                        <div class="flex items-center space-x-2 text-blue-400 text-xs font-bold uppercase mb-3">
+                            <i class="fas fa-podcast"></i>
+                            <span>Voice Broadcast Message</span>
+                        </div>
+                        <h4 class="text-sm font-bold text-white mb-2">Message to Bichi Youth & Elders</h4>
+                        <p class="text-xs text-slate-300 mb-4">Direct Audio address on democratic participation and youth skills programs.</p>
+
+                        <!-- Interactive Audio Bar Controls -->
+                        <div class="bg-slate-900 p-3 rounded-lg flex items-center space-x-3">
+                            <button id="podcastPlayBtn" onclick="togglePodcastAudio()" class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs flex-shrink-0">
+                                <i class="fas fa-play" id="podcastIcon"></i>
+                            </button>
+                            <div class="flex-grow">
+                                <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                                    <div id="podcastProgress" class="h-full bg-blue-500 w-0 transition-all"></div>
+                                </div>
+                            </div>
+                            <span class="text-[10px] text-slate-400" id="podcastTime">0:00</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Legislative Policy Agenda -->
+    <section id="agenda" class="py-20 bg-slate-900 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold text-blue-400 uppercase tracking-widest">Policy Focus</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">Core Legislative Agenda</h2>
+                <p class="text-slate-400 text-sm mt-2">Championing national reforms while delivering grassroots transformation.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Pillar 1 -->
+                <div class="bg-slate-950 p-8 rounded-2xl border border-slate-800 hover:border-blue-500/40 transition group">
+                    <div class="w-14 h-14 bg-blue-900/30 text-blue-400 rounded-xl flex items-center justify-center font-bold text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Effective Sponsoring & Oversight</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Active committee oversight, championing legislative bills that ensure capital budgetary allocation for Bichi and Northern Kano infrastructure development.
+                    </p>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="bg-slate-950 p-8 rounded-2xl border border-slate-800 hover:border-emerald-500/40 transition group">
+                    <div class="w-14 h-14 bg-emerald-900/30 text-emerald-400 rounded-xl flex items-center justify-center font-bold text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Youth & Women Job Creation</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Facilitating federal employment placements, vocational toolkits, business seed funding, and digital tech skills training for local youth.
+                    </p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="bg-slate-950 p-8 rounded-2xl border border-slate-800 hover:border-red-500/40 transition group">
+                    <div class="w-14 h-14 bg-red-900/30 text-red-400 rounded-xl flex items-center justify-center font-bold text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Grassroots Open Door Policy</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Regular town hall consultations, active engagement with traditional leaders, elders, and youth bodies to prioritize direct community needs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Lightbox Gallery with Filtering Tags -->
+    <section id="gallery" class="py-20 bg-slate-950 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest"><i class="fas fa-camera mr-1"></i> Photo Archive</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">Constituency Activity Gallery</h2>
+                <p class="text-slate-400 text-sm mt-2">Visual records of commissioned projects, empowerment drives, and community engagements.</p>
+            </div>
+
+            <!-- Gallery Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-2 mb-10" id="gallery-filters">
+                <button onclick="filterGallery('all', this)" class="px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white transition gallery-filter-btn active">All Photos</button>
+                <button onclick="filterGallery('commissioning', this)" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition gallery-filter-btn">Commissioning</button>
+                <button onclick="filterGallery('townhall', this)" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition gallery-filter-btn">Town Halls</button>
+                <button onclick="filterGallery('schools', this)" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition gallery-filter-btn">Education</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="gallery-grid">
+                <!-- Gallery items populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Calendar Section -->
+    <section id="events" class="py-20 bg-slate-900 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-xs font-bold text-red-500 uppercase tracking-widest">Schedule</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">Upcoming Events & Town Halls</h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Event Card 1 -->
+                <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-slate-700 transition">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Town Hall</span>
+                            <span class="text-xs text-slate-400 font-medium"><i class="fas fa-location-dot text-red-500 mr-1"></i> Bichi Town Hall</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Bichi LGA Stakeholders Engagement</h3>
+                        <p class="text-slate-400 text-xs mb-4">Reviewing ongoing constituency projects, water schemes, and interactive feedback session.</p>
+                    </div>
+                    <div class="border-t border-slate-800 pt-4 flex justify-between items-center">
+                        <span class="text-xs font-bold text-blue-400"><i class="far fa-calendar mr-1"></i> Saturday | 11:00 AM</span>
+                        <button onclick="switchToTab('feedback'); smoothScrollTo('#engagement'); playAudioClick();" class="text-xs bg-slate-800 hover:bg-slate-700 text-white px-3 py-1.5 rounded-lg font-semibold border border-slate-700 transition">
+                            Register
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Event Card 2 -->
+                <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-slate-700 transition">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Empowerment</span>
+                            <span class="text-xs text-slate-400 font-medium"><i class="fas fa-location-dot text-blue-400 mr-1"></i> Constituency HQ</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Youth Equipment Distribution Phase 4</h3>
+                        <p class="text-slate-400 text-xs mb-4">Official presentation of working tools, sewing machines, and business starter funds.</p>
+                    </div>
+                    <div class="border-t border-slate-800 pt-4 flex justify-between items-center">
+                        <span class="text-xs font-bold text-blue-400"><i class="far fa-calendar mr-1"></i> Nov 18 | 10:00 AM</span>
+                        <button onclick="switchToTab('feedback'); smoothScrollTo('#engagement'); playAudioClick();" class="text-xs bg-slate-800 hover:bg-slate-700 text-white px-3 py-1.5 rounded-lg font-semibold border border-slate-700 transition">
+                            Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Event Card 3 -->
+                <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-slate-700 transition">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="bg-emerald-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Briefing</span>
+                            <span class="text-xs text-slate-400 font-medium"><i class="fas fa-location-dot text-emerald-400 mr-1"></i> Secretariat</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Ward Executives & Elders Consultations</h3>
+                        <p class="text-slate-400 text-xs mb-4">Strategic consultative meeting on ward priorities for the upcoming legislative calendar.</p>
+                    </div>
+                    <div class="border-t border-slate-800 pt-4 flex justify-between items-center">
+                        <span class="text-xs font-bold text-blue-400"><i class="far fa-calendar mr-1"></i> Nov 25 | 2:00 PM</span>
+                        <button onclick="switchToTab('feedback'); smoothScrollTo('#engagement'); playAudioClick();" class="text-xs bg-slate-800 hover:bg-slate-700 text-white px-3 py-1.5 rounded-lg font-semibold border border-slate-700 transition">
+                            Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Constituency Feedback & Volunteer Portal -->
+    <section id="engagement" class="py-20 bg-slate-950 border-b border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="text-xs font-bold text-blue-400 uppercase tracking-widest"><i class="fas fa-paper-plane mr-1"></i> Direct Channel</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">Constituent Engagement Portal</h2>
+                <p class="text-slate-400 text-sm mt-2">Voice your suggestions, submit constituency requests, or register as a campaign movement volunteer.</p>
+            </div>
+
+            <!-- Portal Tabs -->
+            <div class="bg-slate-900 p-1.5 rounded-2xl border border-slate-800 flex mb-8">
+                <button id="tab-volunteer-btn" onclick="switchToTab('volunteer')" class="flex-1 py-3 text-xs sm:text-sm font-bold rounded-xl transition text-white bg-primary-600 shadow-md">
+                    <i class="fas fa-user-plus mr-2"></i> Join Campaign Volunteer
+                </button>
+                <button id="tab-feedback-btn" onclick="switchToTab('feedback')" class="flex-1 py-3 text-xs sm:text-sm font-bold rounded-xl transition text-slate-400 hover:text-white">
+                    <i class="fas fa-comment-dots mr-2"></i> Project Request / Feedback
+                </button>
+            </div>
+
+            <!-- Tab Content 1: Volunteer Form -->
+            <div id="tab-volunteer-content" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-xl">
+                <form onsubmit="handleVolunteerSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Full Name *</label>
+                            <input type="text" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition" placeholder="e.g. Ibrahim Abubakar">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Phone Number *</label>
+                            <input type="tel" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition" placeholder="0800 000 0000">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Bichi Ward / Location *</label>
+                            <select required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition">
+                                <option value="">Select Ward</option>
+                                <option value="bichi-urban">Bichi Urban Ward</option>
+                                <option value="danbatta-road">Danbatta Ward</option>
+                                <option value="badume">Badume Ward</option>
+                                <option value="fagwalawa">Fagwalawa Ward</option>
+                                <option value="kyauta">Kyauta Ward</option>
+                                <option value="other">Other Bichi Ward</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Preferred Volunteer Area</label>
+                            <select class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition">
+                                <option value="grassroots">Grassroots Mobilization</option>
+                                <option value="media">Digital & Social Media</option>
+                                <option value="events">Event Logistics</option>
+                                <option value="youth">Youth & Student Affairs</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-secondary-600 hover:bg-secondary-700 text-white font-bold py-4 rounded-xl shadow-lg transition text-base flex items-center justify-center space-x-2">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Register as Movement Volunteer</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Tab Content 2: Feedback & Project Request Form -->
+            <div id="tab-feedback-content" class="hidden bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-xl">
+                <form onsubmit="handleFeedbackSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Your Name *</label>
+                            <input type="text" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition" placeholder="Full name">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Email or Phone</label>
+                            <input type="text" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition" placeholder="Contact Info">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Category of Request</label>
+                        <select class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition">
+                            <option value="water">Water / Borehole Request</option>
+                            <option value="school">School / Education Rehabilitation</option>
+                            <option value="road">Road / Streetlight Need</option>
+                            <option value="empowerment">Youth Empowerment Inquiry</option>
+                            <option value="general">General Policy Suggestion</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Details of Request / Project Location *</label>
+                        <textarea required rows="4" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition" placeholder="Describe the specific area in Bichi and details of the intervention needed..."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 rounded-xl shadow-lg transition text-base flex items-center justify-center space-x-2">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Submit Request to Constituency Office</span>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-slate-800">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="bg-primary-600 text-white font-black text-xl w-10 h-10 rounded-lg flex items-center justify-center">AB</div>
+                        <span class="text-white font-bold text-lg">Hon. Abubakar Kabir Abubakar</span>
+                    </div>
+                    <p class="text-xs text-slate-400 max-w-md leading-relaxed">
+                        Official Constituency Portal for Bichi Federal Constituency, Kano State. Dedicated to legislative integrity, grassroots empowerment, and infrastructure expansion.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-4">Quick Navigation</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#projects" class="hover:text-white transition">Executed Projects Showcase</a></li>
+                        <li><a href="#media" class="hover:text-white transition">Speeches & Audio Broadcasts</a></li>
+                        <li><a href="#agenda" class="hover:text-white transition">Legislative Priorities</a></li>
+                        <li><a href="#events" class="hover:text-white transition">Constituency Town Halls</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-4">Constituency Office</h4>
+                    <p class="text-xs text-slate-400">
+                        <i class="fas fa-location-dot text-red-500 mr-2"></i> Bichi Main Office, Kano State<br>
+                        <i class="fas fa-envelope text-blue-400 mr-2 mt-2"></i> info@abbabichi.ng
+                    </p>
+                </div>
+            </div>
+            
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500">
+                <p>&copy; 2026 Hon. Abubakar Kabir Abubakar (Abba Bichi). All rights reserved.</p>
+                <p class="mt-2 sm:mt-0">Powered by (Company's name here)</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Project Detail Modal -->
+    <div id="project-modal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl relative animate-fadeIn">
+            
+            <!-- Modal Header Header Image -->
+            <div class="relative h-48 bg-slate-800">
+                <img id="modal-img" src="" alt="Project Image" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                <button onclick="closeProjectModal()" class="absolute top-4 right-4 w-9 h-9 bg-slate-900/80 hover:bg-slate-900 text-white rounded-full flex items-center justify-center border border-slate-700 transition">
+                    <i class="fas fa-times"></i>
+                </button>
+                <span id="modal-category" class="absolute bottom-4 left-6 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">
+                    Category
+                </span>
+            </div>
+
+            <!-- Modal Content Body -->
+            <div class="p-6 sm:p-8 space-y-4">
+                <h3 id="modal-title" class="text-2xl font-black text-white">Project Title</h3>
+                
+                <p id="modal-desc" class="text-slate-300 text-sm leading-relaxed">Detailed project description goes here...</p>
+
+                <!-- Key Project Details Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2 border-t border-b border-slate-800 py-4 text-xs">
+                    <div>
+                        <span class="text-slate-500 block uppercase font-bold text-[10px]">Location / Wards</span>
+                        <span id="modal-ward" class="text-white font-semibold">Multiple Wards</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-500 block uppercase font-bold text-[10px]">Status</span>
+                        <span id="modal-status" class="text-emerald-400 font-bold">Completed</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-500 block uppercase font-bold text-[10px]">Impacted Beneficiaries</span>
+                        <span id="modal-impact" class="text-white font-semibold">10,000+ Residents</span>
+                    </div>
+                </div>
+
+                <div class="flex justify-end pt-2">
+                    <button onclick="closeProjectModal()" class="bg-primary-600 hover:bg-primary-700 text-white font-bold px-6 py-2.5 rounded-xl text-xs transition">
+                        Close Details
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Notification Toast Element -->
+    <div id="toast-notification" class="fixed bottom-6 right-6 z-50 hidden bg-emerald-600 text-white px-5 py-3.5 rounded-xl shadow-2xl flex items-center space-x-3 text-sm font-bold border border-emerald-400/30">
+        <i class="fas fa-circle-check text-lg"></i>
+        <span id="toast-message">Action processed successfully!</span>
+    </div>
+
+    <!-- JavaScript Data & Logic Application Script -->
+    <script>
+        // Sample Executed Projects Data Array
+        const projectsData = [
+            {
+                id: 1,
+                title: "Solar-Powered Motorized Borehole Systems",
+                category: "water",
+                categoryLabel: "Water & Sanitation",
+                status: "100% Completed",
+                progress: 100,
+                ward: "Badume, Bichi Urban & Danbatta Wards",
+                impact: "Over 25,000+ Residents Provided Potable Clean Water",
+                image: "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=800&q=80",
+                desc: "High-capacity industrial motorized boreholes integrated with 10,000-liter overhead storage tanks and solar panel arrays to guarantee uninterrupted clean water access for households and local livestock."
+            },
+            {
+                id: 2,
+                title: "Modern 3-Classroom Blocks with Office & Solar Power",
+                category: "education",
+                categoryLabel: "Education",
+                status: "100% Completed",
+                progress: 100,
+                ward: "Fagwalawa & Kyauta Wards",
+                impact: "1,200+ Students accommodated in modern learning conditions",
+                image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80",
+                desc: "Fully furnished school blocks equipped with student dual-desks, whiteboards, headmaster offices, and perimeter solar lighting for enhanced security."
+            },
+            {
+                id: 3,
+                title: "Youth & Women Micro-Entrepreneurship Empowerment Grant",
+                category: "empowerment",
+                categoryLabel: "Youth Grants",
+                status: "Completed & Disbursed",
+                progress: 100,
+                ward: "All 11 Bichi Wards",
+                impact: "5,000 Women & Youths Received Equipment & Cash Grants",
+                image: "https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&w=800&q=80",
+                desc: "Provision of commercial sewing machines, grinding units, motorcycle transport grants, and business startup capital to boost self-reliance and local economic activity."
+            },
+            {
+                id: 4,
+                title: "Asphalt Access Road & Drainage Network Construction",
+                category: "infrastructure",
+                categoryLabel: "Infrastructure",
+                status: "Commissioned",
+                progress: 100,
+                ward: "Bichi Central Access Corridors",
+                impact: "Reduced travel times and facilitated farm-to-market trade",
+                image: "https://images.unsplash.com/photo-1584467735871-8e85353a8413?auto=format&fit=crop&w=800&q=80",
+                desc: "Construction of durable asphalt link roads complete with side drainage channels to prevent flash flooding and boost local economic hubs."
+            },
+            {
+                id: 5,
+                title: "Solar Street Lighting Grid Expansion",
+                category: "infrastructure",
+                categoryLabel: "Infrastructure",
+                status: "100% Completed",
+                progress: 100,
+                ward: "Commercial Markets & Rural Routes",
+                impact: "Enhanced night security and extended commercial trade hours",
+                image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
+                desc: "Installation of standalone all-in-one solar streetlights across market squares, places of worship, and major residential streets."
+            },
+            {
+                id: 6,
+                title: "Primary Healthcare Clinic Rehabilitation",
+                category: "infrastructure",
+                categoryLabel: "Healthcare",
+                status: "Ongoing Expansion",
+                progress: 85,
+                ward: "Danbatta Road Ward",
+                impact: "Upgraded medical facilities for maternal & child care",
+                image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80",
+                desc: "Rehabilitation of local healthcare centers, donation of medical consumables, solar power supply for cold-chain vaccine storage."
+            }
+        ];
+
+        // Sample Photo Gallery Data
+        const galleryData = [
+            { id: 1, tag: "commissioning", title: "Borehole Project Flagoff", img: "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=600&q=80" },
+            { id: 2, tag: "townhall", title: "Constituency Stakeholders Meeting", img: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80" },
+            { id: 3, tag: "schools", title: "New Classroom Block Inspection", img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" },
+            { id: 4, tag: "commissioning", title: "Youth Empowerment Grant Distribution", img: "https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&w=600&q=80" },
+            { id: 5, tag: "townhall", title: "Youth Leadership Dialogue", img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80" },
+            { id: 6, tag: "schools", title: "Scholarship Scheme Presentation", img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" }
+        ];
+
+        // Web Audio API Sound generator for rich click feedback
+        function playAudioClick() {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(600, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(200, ctx.currentTime + 0.05);
+                gain.gain.setValueAtTime(0.1, ctx.currentTime);
+                gain.gain.linearRampToValueAtTime(0.01, ctx.currentTime + 0.05);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.05);
+            } catch(e) {}
+        }
+
+        // Initialize Render on Load
+        document.addEventListener("DOMContentLoaded", () => {
+            renderProjects(projectsData);
+            renderGallery(galleryData);
+            initCounters();
+            setupMobileMenu();
+        });
+
+        // Render Projects Grid
+        function renderProjects(items) {
+            const container = document.getElementById('projects-grid');
+            container.innerHTML = '';
+
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden hover:border-blue-500/40 transition duration-300 flex flex-col justify-between group shadow-lg";
+                card.innerHTML = `
+                    <div>
+                        <div class="relative h-48 overflow-hidden bg-slate-900">
+                            <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+                                ${item.categoryLabel}
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-white mb-2 leading-snug group-hover:text-blue-400 transition">${item.title}</h3>
+                            <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed mb-4">${item.desc}</p>
+                            
+                            <!-- Progress Bar -->
+                            <div class="space-y-1 mb-4">
+                                <div class="flex justify-between text-[10px] font-bold">
+                                    <span class="text-slate-400">Execution Status</span>
+                                    <span class="text-emerald-400">${item.status}</span>
+                                </div>
+                                <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-emerald-500 rounded-full" style="width: ${item.progress}%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <button onclick="openProjectModal(${item.id}); playAudioClick();" class="w-full bg-slate-900 hover:bg-primary-600 text-slate-200 hover:text-white border border-slate-800 hover:border-transparent py-2.5 rounded-xl text-xs font-bold transition flex items-center justify-center space-x-2">
+                            <span>View Full Details</span>
+                            <i class="fas fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Project Filtering
+        function filterProjects(cat, btn) {
+            playAudioClick();
+            document.querySelectorAll('#project-filters .filter-btn').forEach(b => {
+                b.className = "px-4 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition filter-btn border border-slate-700";
+            });
+            btn.className = "px-4 py-2 rounded-xl text-xs font-bold bg-primary-600 text-white transition shadow-sm border border-blue-500/30 filter-btn active";
+
+            if (cat === 'all') {
+                renderProjects(projectsData);
+            } else {
+                const filtered = projectsData.filter(p => p.category === cat);
+                renderProjects(filtered);
+            }
+        }
+
+        // Render Photo Gallery
+        function renderGallery(items) {
+            const container = document.getElementById('gallery-grid');
+            container.innerHTML = '';
+
+            items.forEach(item => {
+                const div = document.createElement('div');
+                div.className = "relative rounded-xl overflow-hidden h-44 group cursor-pointer border border-slate-800 bg-slate-900";
+                div.onclick = () => { showToast(`Viewing: ${item.title}`); playAudioClick(); };
+                div.innerHTML = `
+                    <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-3">
+                        <span class="text-xs font-bold text-white">${item.title}</span>
+                        <span class="text-[10px] text-blue-400 capitalize">${item.tag}</span>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // Gallery Filter Logic
+        function filterGallery(tag, btn) {
+            playAudioClick();
+            document.querySelectorAll('#gallery-filters .gallery-filter-btn').forEach(b => {
+                b.className = "px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition gallery-filter-btn";
+            });
+            btn.className = "px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white transition gallery-filter-btn active";
+
+            if (tag === 'all') {
+                renderGallery(galleryData);
+            } else {
+                renderGallery(galleryData.filter(g => g.tag === tag));
+            }
+        }
+
+        // Modal Handler Logic
+        function openProjectModal(id) {
+            const p = projectsData.find(item => item.id === id);
+            if (!p) return;
+
+            document.getElementById('modal-img').src = p.image;
+            document.getElementById('modal-title').innerText = p.title;
+            document.getElementById('modal-desc').innerText = p.desc;
+            document.getElementById('modal-category').innerText = p.categoryLabel;
+            document.getElementById('modal-ward').innerText = p.ward;
+            document.getElementById('modal-status').innerText = p.status;
+            document.getElementById('modal-impact').innerText = p.impact;
+
+            document.getElementById('project-modal').classList.remove('hidden');
+        }
+
+        function closeProjectModal() {
+            playAudioClick();
+            document.getElementById('project-modal').classList.add('hidden');
+        }
+
+        // Animated Impact Stat Counter
+        function initCounters() {
+            const counters = document.querySelectorAll('.counter');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = +entry.target.getAttribute('data-target');
+                        let count = 0;
+                        const speed = target / 50;
+                        const updateCount = () => {
+                            count += speed;
+                            if (count < target) {
+                                entry.target.innerText = Math.ceil(count);
+                                setTimeout(updateCount, 30);
+                            } else {
+                                entry.target.innerText = target;
+                            }
+                        };
+                        updateCount();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counters.forEach(c => observer.observe(c));
+        }
+
+        // Video Player Logic
+        let isVideoPlaying = false;
+        function playMainVideo() {
+            playAudioClick();
+            isVideoPlaying = true;
+            document.getElementById('video-poster').classList.add('hidden');
+            document.getElementById('video-play-btn').classList.add('hidden');
+            document.getElementById('video-playing-state').classList.remove('hidden');
+        }
+
+        function stopMainVideo() {
+            playAudioClick();
+            isVideoPlaying = false;
+            document.getElementById('video-poster').classList.remove('hidden');
+            document.getElementById('video-play-btn').classList.remove('hidden');
+            document.getElementById('video-playing-state').classList.add('hidden');
+        }
+
+        function selectVideo(id) {
+            playAudioClick();
+            if (id === 1) {
+                document.getElementById('current-video-title').innerText = "Plenary Debate: Sponsoring Infrastructure Development Bills";
+                document.getElementById('current-video-desc').innerText = "Hon. Abubakar Kabir Abubakar addressing the House on rural road networks and power grid extension.";
+            } else {
+                document.getElementById('current-video-title').innerText = "Flag-off of Mega Youth Empowerment Grant";
+                document.getElementById('current-video-desc').innerText = "Official ceremony presenting equipment grants and startup funding to Bichi youth.";
+            }
+            stopMainVideo();
+            showToast("Video stream loaded");
+        }
+
+        // Audio Widget Simulation Logic
+        let heroAudioPlaying = false;
+        function toggleHeroAudio() {
+            playAudioClick();
+            const btn = document.getElementById('heroAudioBtn');
+            const icon = document.getElementById('heroAudioIcon');
+            const status = document.getElementById('heroAudioStatus');
+
+            if (!heroAudioPlaying) {
+                heroAudioPlaying = true;
+                icon.className = "fas fa-pause text-xs ml-0";
+                status.innerText = "Playing Speech... (0:12 / 0:45)";
+                showToast("Audio Briefing Playing");
+            } else {
+                heroAudioPlaying = false;
+                icon.className = "fas fa-play text-xs ml-0.5";
+                status.innerText = "Constituency Briefing (0:45)";
+            }
+        }
+
+        let podcastPlaying = false;
+        let podcastInterval = null;
+        function togglePodcastAudio() {
+            playAudioClick();
+            const icon = document.getElementById('podcastIcon');
+            const progress = document.getElementById('podcastProgress');
+            const timeText = document.getElementById('podcastTime');
+
+            if (!podcastPlaying) {
+                podcastPlaying = true;
+                icon.className = "fas fa-pause";
+                let pct = 0;
+                podcastInterval = setInterval(() => {
+                    pct += 2;
+                    progress.style.width = pct + "%";
+                    timeText.innerText = `0:${Math.floor(pct * 0.3)}`;
+                    if (pct >= 100) {
+                        clearInterval(podcastInterval);
+                        podcastPlaying = false;
+                        icon.className = "fas fa-play";
+                        progress.style.width = "0%";
+                        timeText.innerText = "0:00";
+                    }
+                }, 200);
+            } else {
+                podcastPlaying = false;
+                icon.className = "fas fa-play";
+                clearInterval(podcastInterval);
+            }
+        }
+
+        // Portal Tab Switching
+        function switchToTab(tab) {
+            playAudioClick();
+            const vBtn = document.getElementById('tab-volunteer-btn');
+            const fBtn = document.getElementById('tab-feedback-btn');
+            const vContent = document.getElementById('tab-volunteer-content');
+            const fContent = document.getElementById('tab-feedback-content');
+
+            if (tab === 'volunteer') {
+                vBtn.className = "flex-1 py-3 text-xs sm:text-sm font-bold rounded-xl transition text-white bg-primary-600 shadow-md";
+                fBtn.className = "flex-1 py-3 text-xs sm:text-sm font-bold rounded-xl transition text-slate-400 hover:text-white";
+                vContent.classList.remove('hidden');
+                fContent.classList.add('hidden');
+            } else {
+                fBtn.className = "flex-1 py-3 text-xs sm:text-sm font-bold rounded-xl transition text-white bg-primary-600 shadow-md";
+                vBtn.className = "flex-1 py-3 text-xs sm:text-sm font-bold rounded-xl transition text-slate-400 hover:text-white";
+                fContent.classList.remove('hidden');
+                vContent.classList.add('hidden');
+            }
+        }
+
+        // Form Handlers
+        function handleVolunteerSubmit(e) {
+            e.preventDefault();
+            playAudioClick();
+            showToast("Success! Volunteer registration submitted.");
+            e.target.reset();
+        }
+
+        function handleFeedbackSubmit(e) {
+            e.preventDefault();
+            playAudioClick();
+            showToast("Thank you! Request forwarded to Constituency Office.");
+            e.target.reset();
+        }
+
+        // Toast Helper
+        function showToast(msg) {
+            const toast = document.getElementById('toast-notification');
+            document.getElementById('toast-message').innerText = msg;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3500);
+        }
+
+        // Smooth Scroll Helper
+        function smoothScrollTo(target) {
+            document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Mobile Menu Drawer Toggle
+        function setupMobileMenu() {
+            const btn = document.getElementById('menu-btn');
+            btn.addEventListener('click', () => {
+                toggleMobileMenu();
+            });
+        }
+
+        function toggleMobileMenu() {
+            playAudioClick();
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function shareMedia() {
+            playAudioClick();
+            showToast("Portal link copied to clipboard");
+        }
+    </script>
+</body>
+</html>
