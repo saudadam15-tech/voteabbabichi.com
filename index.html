@@ -150,7 +150,7 @@
 
                 <!-- Desktop Menu Links -->
                 <div class="hidden lg:flex items-center space-x-8 font-medium text-sm text-slate-300">
-                    <a href="#stats" class="hover:text-blue-400 transition" onclick="playAudioClick()">Impact</a>
+                    <a href="#stats" class="hover:text-blue-400 transition" onclick="playAudioClick()">Impact & Stats</a>
                     <a href="#projects" class="hover:text-blue-400 transition" onclick="playAudioClick()">Projects Showcase</a>
                     <a href="#media" class="hover:text-blue-400 transition" onclick="playAudioClick()">Media & Speeches</a>
                     <a href="#agenda" class="hover:text-blue-400 transition" onclick="playAudioClick()">Legislative Agenda</a>
@@ -161,8 +161,8 @@
                 <!-- Call To Action -->
                 <div class="hidden sm:flex items-center space-x-3">
                     <a href="#engagement" onclick="switchToTab('volunteer'); playAudioClick();" class="bg-secondary-600 hover:bg-secondary-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-lg shadow-red-900/20 transition transform hover:-translate-y-0.5 flex items-center space-x-2">
-                        <i class="fas fa-hand-holding-heart"></i>
-                        <span>Get Involved</span>
+                        
+                        <span>Join Campaign Movement</span>
                     </a>
                 </div>
 
@@ -178,11 +178,11 @@
         <!-- Mobile Drawer Menu -->
         <div id="mobile-menu" class="hidden lg:hidden bg-slate-900 border-b border-slate-800 px-6 pt-2 pb-6 space-y-3 transition-all duration-300">
             <a href="#stats" class="block py-2 text-slate-300 hover:text-blue-400 font-medium" onclick="toggleMobileMenu()">Impact & Stats</a>
-            <a href="#projects" class="block py-2 text-slate-300 hover:text-blue-400 font-medium" onclick="toggleMobileMenu()">Executed Projects</a>
-            <a href="#media" class="block py-2 text-slate-300 hover:text-blue-400 font-medium" onclick="toggleMobileMenu()">Multimedia Speeches</a>
+            <a href="#projects" class="block py-2 text-slate-300 hover:text-blue-400 font-medium" onclick="toggleMobileMenu()">Projects Showcase</a>
+            <a href="#media" class="block py-2 text-slate-300 hover:text-blue-400 font-medium" onclick="toggleMobileMenu()">Media & Speeches</a>
             <a href="#agenda" class="block py-2 text-slate-300 hover:text-blue-400 font-medium" onclick="toggleMobileMenu()">Legislative Agenda</a>
             <a href="#gallery" class="block py-2 text-slate-300 hover:text-blue-400 font-medium" onclick="toggleMobileMenu()">Photo Gallery</a>
-            <a href="#engagement" class="block py-2 text-slate-300 hover:text-blue-400 font-medium" onclick="toggleMobileMenu()">Constituent Portal</a>
+            <a href="#engagement" class="block py-2 text-slate-300 hover:text-blue-400 font-medium" onclick="toggleMobileMenu()">Portal</a>
             <div class="pt-2">
                 <a href="#engagement" onclick="switchToTab('volunteer'); toggleMobileMenu();" class="block text-center bg-secondary-600 text-white py-3 rounded-xl font-bold shadow-lg">
                     Join Campaign Movement
@@ -406,10 +406,25 @@
                         Education
                     </button>
                     <button onclick="filterProjects('empowerment', this)" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition filter-btn border border-slate-700">
-                        Youth Grants
+                        Empowerment
                     </button>
                     <button onclick="filterProjects('water', this)" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition filter-btn border border-slate-700">
                         Water & Sanitation
+                    </button>
+                     <button onclick="filterProjects('water', this)" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition filter-btn border border-slate-700">
+                        Healthcare
+                    </button>
+                     <button onclick="filterProjects('water', this)" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition filter-btn border border-slate-700">
+                        Agriculture
+                    </button>
+                     <button onclick="filterProjects('water', this)" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition filter-btn border border-slate-700">
+                        Sports 
+                    </button>
+                     <button onclick="filterProjects('water', this)" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition filter-btn border border-slate-700">
+                        Religion
+                    </button>
+                     <button onclick="filterProjects('water', this)" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 transition filter-btn border border-slate-700">
+                        Philanthropy
                     </button>
                 </div>
             </div>
