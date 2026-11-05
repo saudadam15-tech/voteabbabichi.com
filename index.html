@@ -350,13 +350,11 @@
                         <!-- Audio Message Widget Player inside Hero -->
                         <div class="mt-4 bg-slate-900/90 border border-slate-800 rounded-xl p-4 flex items-center justify-between">
                             <div class="flex items-center space-x-3">
-                                <button id="heroAudioBtn" onclick="toggleHeroAudio()" class="w-10 h-10 bg-red-600 hover:bg-red-700 rounded-full flex items-center justify-center text-white transition shadow-md">
+                                <button id="heroAudioBtn" 
+                                    onclick="toggleHeroAudio()" 
+                                    class="w-10 h-10 bg-red-600 hover:bg-red-700 rounded-full flex items-center justify-center text-white transition shadow-md">
                                     <i class="fas fa-play text-xs ml-0.5" id="heroAudioIcon"></i>
                                 </button>
-                                <audio id="heroAudioBtn">
-                                    <source src="assets/audio/audiojinglehausa.mpeg" type="audio/mpeg">
-                                    Your browser does not support audio playback.
-                                </audio>
                                 <div>
                                     <span class="block text-xs font-bold text-slate-200">Listen to Audio Message</span>
                                     <span class="text-[10px] text-slate-400" id="heroAudioStatus">Constituency Briefing (0:45)</span>
@@ -364,6 +362,11 @@
                             </div>
                             <i class="fas fa-volume-high text-slate-500 text-sm"></i>
                         </div>
+                        <!-- Actual Audio File -->
+                        <audio id="heroAudio" preload="metadata">
+                            <source src="assets/audio/audiojinglehausa.mpeg" type="audio/mpeg">
+                             Your browser does not support audio playback.
+                        </audio>
 
                         <!-- Social Quick Links -->
                         <div class="mt-4 flex justify-around text-slate-400 text-sm pt-2">
