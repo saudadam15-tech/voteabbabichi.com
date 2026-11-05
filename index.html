@@ -640,12 +640,11 @@
                             <span class="text-[10px] text-slate-400" id="podcastTime">0:00</span>
                         </div>
                     </div>
-                     <!-- Actual Audio File -->
-                        <audio id="podcastPlay" preload="metadata">
-                            <source src="assets/audio/audiojinglehausa.mpeg" type="audio/mpeg">
-                             Your browser does not support audio playback.
-                        </audio>
-
+                    <!-- Actual Broadcast Audio File -->
+                    <audio id="podcastAudio" preload="metadata">
+                        <source src="assets/audio/audiojinglehausa.mpeg" type="audio/mpeg">
+                        Your browser does not support audio playback.
+                    </audio>
                 </div>
 
             </div>
@@ -1318,34 +1317,64 @@
 
         let podcastPlaying = false;
         let podcastInterval = null;
+        
         function togglePodcastAudio() {
-            playAudioClick();
-            const icon = document.getElementById('podcastIcon');
-            const progress = document.getElementById('podcastProgress');
-            const timeText = document.getElementById('podcastTime');
 
-            if (!podcastPlaying) {
-                podcastPlaying = true;
-                icon.className = "fas fa-pause";
-                let pct = 0;
-                podcastInterval = setInterval(() => {
-                    pct += 2;
-                    progress.style.width = pct + "%";
-                    timeText.innerText = `0:${Math.floor(pct * 0.3)}`;
-                    if (pct >= 100) {
-                        clearInterval(podcastInterval);
-                        podcastPlaying = false;
-                        icon.className = "fas fa-play";
-                        progress.style.width = "0%";
-                        timeText.innerText = "0:00";
-                    }
-                }, 200);
+            const audio = document.getElementById("podcastAudio");
+            const icon = document.getElementById("podcastIcon");
+            const progress = document.getElementById("podcastProgress");
+            const time = document.getElementById("podcastTime");
+
+            if (audio.paused) {
+
+                audio.play().then(() => {
+                    icon.classList.remove("fa-play");
+                    icon.classList.add("fa-pause");
+                }).catch(error => {
+                    console.error("Audio playback error:", error);
+                    time.textContent = "Audio unavailable";
+                });
+
             } else {
-                podcastPlaying = false;
-                icon.className = "fas fa-play";
-                clearInterval(podcastInterval);
+
+                audio.pause();
+
+                icon.classList.remove("fa-pause");
+                icon.classList.add("fa-play");
             }
         }
+
+        // Update the progress bar while audio is playing
+        document.getElementById("podcastAudio").addEventListener("timeupdate", function() {
+
+            const audio = this;
+            const progress = document.getElementById("podcastProgress");
+            const time = document.getElementById("podcastTime");
+
+            if (audio.duration) {
+
+                const percentage = (audio.currentTime / audio.duration) * 100;
+
+                progress.style.width = percentage + "%";
+
+                const minutes = Math.floor(audio.currentTime / 60);
+                const seconds = Math.floor(audio.currentTime % 60);
+
+                time.textContent = minutes + ":" + String(seconds).padStart(2, "0");
+            }
+        });
+
+        // Reset when audio finishes
+        document.getElementById("podcastAudio").addEventListener("ended", function() {
+
+            document.getElementById("podcastIcon").classList.remove("fa-pause");
+            document.getElementById("podcastIcon").classList.add("fa-play");
+
+            document.getElementById("podcastProgress").style.width = "0%";
+            document.getElementById("podcastTime").textContent = "0:00";
+
+        });
+
 
         // Portal Tab Switching
         function switchToTab(tab) {
