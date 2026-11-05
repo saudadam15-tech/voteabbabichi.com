@@ -559,30 +559,16 @@
                             <i class="fas fa-play ml-1"></i>
                         </button>
 
-                                        <!-- Actual YouTube Video Player -->
-                <div id="video-playing-state" class="hidden absolute inset-0 bg-slate-950 flex flex-col items-center justify-center p-2">
-
-                    <div class="w-full h-full relative">
-
-                        <iframe
-                            id="mainYouTubePlayer"
-                            class="w-full h-full rounded-lg"
-                            src=""
-                            title="Constituency Keynote Speech — House of Reps Session"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen>
-                        </iframe>
-
-                        <button
-                            onclick="stopMainVideo()"
-                            class="absolute top-3 right-3 z-10 bg-slate-900/90 hover:bg-red-600 text-xs text-white px-4 py-2 rounded-lg border border-slate-700">
-                            <i class="fas fa-times mr-1"></i> Close Video
-                        </button>
-
+                        <!-- Video Player simulation overlay when playing -->
+                        <div id="video-playing-state" class="hidden absolute inset-0 bg-slate-950 flex flex-col items-center justify-center p-6 text-center">
+                            <div class="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mb-4"></div>
+                            <p class="text-white font-bold text-lg">Playing Video Stream...</p>
+                            <p class="text-slate-400 text-xs mt-1">"Constituency Keynote Speech — House of Reps Session"</p>
+                            <button onclick="stopMainVideo()" class="mt-6 bg-slate-800 hover:bg-slate-700 text-xs text-white px-4 py-2 rounded-lg border border-slate-700">
+                                <i class="fas fa-stop mr-1"></i> Close Stream
+                            </button>
+                        </div>
                     </div>
-                </div>
 
                     <!-- Video Details Controls -->
                     <div class="p-6 bg-slate-900 flex flex-wrap justify-between items-center border-t border-slate-800">
@@ -1331,64 +1317,34 @@
 
         let podcastPlaying = false;
         let podcastInterval = null;
-        
         function togglePodcastAudio() {
+            playAudioClick();
+            const icon = document.getElementById('podcastIcon');
+            const progress = document.getElementById('podcastProgress');
+            const timeText = document.getElementById('podcastTime');
 
-            const audio = document.getElementById("podcastAudio");
-            const icon = document.getElementById("podcastIcon");
-            const progress = document.getElementById("podcastProgress");
-            const time = document.getElementById("podcastTime");
-
-            if (audio.paused) {
-
-                audio.play().then(() => {
-                    icon.classList.remove("fa-play");
-                    icon.classList.add("fa-pause");
-                }).catch(error => {
-                    console.error("Audio playback error:", error);
-                    time.textContent = "Audio unavailable";
-                });
-
+            if (!podcastPlaying) {
+                podcastPlaying = true;
+                icon.className = "fas fa-pause";
+                let pct = 0;
+                podcastInterval = setInterval(() => {
+                    pct += 2;
+                    progress.style.width = pct + "%";
+                    timeText.innerText = `0:${Math.floor(pct * 0.3)}`;
+                    if (pct >= 100) {
+                        clearInterval(podcastInterval);
+                        podcastPlaying = false;
+                        icon.className = "fas fa-play";
+                        progress.style.width = "0%";
+                        timeText.innerText = "0:00";
+                    }
+                }, 200);
             } else {
-
-                audio.pause();
-
-                icon.classList.remove("fa-pause");
-                icon.classList.add("fa-play");
+                podcastPlaying = false;
+                icon.className = "fas fa-play";
+                clearInterval(podcastInterval);
             }
         }
-
-        // Update the progress bar while audio is playing
-        document.getElementById("podcastAudio").addEventListener("timeupdate", function() {
-
-            const audio = this;
-            const progress = document.getElementById("podcastProgress");
-            const time = document.getElementById("podcastTime");
-
-            if (audio.duration) {
-
-                const percentage = (audio.currentTime / audio.duration) * 100;
-
-                progress.style.width = percentage + "%";
-
-                const minutes = Math.floor(audio.currentTime / 60);
-                const seconds = Math.floor(audio.currentTime % 60);
-
-                time.textContent = minutes + ":" + String(seconds).padStart(2, "0");
-            }
-        });
-
-        // Reset when audio finishes
-        document.getElementById("podcastAudio").addEventListener("ended", function() {
-
-            document.getElementById("podcastIcon").classList.remove("fa-pause");
-            document.getElementById("podcastIcon").classList.add("fa-play");
-
-            document.getElementById("podcastProgress").style.width = "0%";
-            document.getElementById("podcastTime").textContent = "0:00";
-
-        });
-
 
         // Portal Tab Switching
         function switchToTab(tab) {
