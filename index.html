@@ -559,14 +559,28 @@
                             <i class="fas fa-play ml-1"></i>
                         </button>
 
-                        <!-- Video Player simulation overlay when playing -->
-                        <div id="video-playing-state" class="hidden absolute inset-0 bg-slate-950 flex flex-col items-center justify-center p-6 text-center">
-                            <div class="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mb-4"></div>
-                            <p class="text-white font-bold text-lg">Playing Video Stream...</p>
-                            <p class="text-slate-400 text-xs mt-1">"Constituency Keynote Speech — House of Reps Session"</p>
-                            <button onclick="stopMainVideo()" class="mt-6 bg-slate-800 hover:bg-slate-700 text-xs text-white px-4 py-2 rounded-lg border border-slate-700">
-                                <i class="fas fa-stop mr-1"></i> Close Stream
+                                            <!-- Actual YouTube Video Player -->
+                    <div id="video-playing-state" class="hidden absolute inset-0 bg-slate-950 flex flex-col items-center justify-center p-2">
+
+                        <div class="w-full h-full relative">
+
+                            <iframe
+                                id="mainYouTubePlayer"
+                                class="w-full h-full rounded-lg"
+                                src=""
+                                title="Constituency Keynote Speech — House of Reps Session"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen>
+                            </iframe>
+
+                            <button
+                                onclick="stopMainVideo()"
+                                class="absolute top-3 right-3 z-10 bg-slate-900/90 hover:bg-red-600 text-xs text-white px-4 py-2 rounded-lg border border-slate-700">
+                                <i class="fas fa-times mr-1"></i> Close Video
                             </button>
+
                         </div>
                     </div>
 
@@ -1246,20 +1260,26 @@
         // Video Player Logic
         let isVideoPlaying = false;
         function playMainVideo() {
-            playAudioClick();
-            isVideoPlaying = true;
-            document.getElementById('video-poster').classList.add('hidden');
-            document.getElementById('video-play-btn').classList.add('hidden');
-            document.getElementById('video-playing-state').classList.remove('hidden');
+            const videoState = document.getElementById("video-playing-state");
+            const player = document.getElementById("mainYouTubePlayer");
+
+            // Replace this with your actual YouTube video ID
+            const videoID = "xShq4wUr_vE&t=11s";
+
+            player.src = "https://www.youtube-nocookie.com/embed/" + videoID + "?autoplay=1&rel=0";
+
+            videoState.classList.remove("hidden");
         }
 
         function stopMainVideo() {
-            playAudioClick();
-            isVideoPlaying = false;
-            document.getElementById('video-poster').classList.remove('hidden');
-            document.getElementById('video-play-btn').classList.remove('hidden');
-            document.getElementById('video-playing-state').classList.add('hidden');
-        }
+            const videoState = document.getElementById("video-playing-state");
+            const player = document.getElementById("mainYouTubePlayer");
+
+            // Stop the video completely
+            player.src = "";
+
+            videoState.classList.add("hidden");
+        }   
 
         function selectVideo(id) {
             playAudioClick();
