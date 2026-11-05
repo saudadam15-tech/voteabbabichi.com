@@ -1272,22 +1272,43 @@
 
         // Audio Widget Simulation Logic
         let heroAudioPlaying = false;
+        
         function toggleHeroAudio() {
-            playAudioClick();
-            const btn = document.getElementById('heroAudioBtn');
-            const icon = document.getElementById('heroAudioIcon');
-            const status = document.getElementById('heroAudioStatus');
 
-            if (!heroAudioPlaying) {
-                heroAudioPlaying = true;
-                icon.className = "fas fa-pause text-xs ml-0";
-                status.innerText = "Playing Speech... (0:12 / 0:45)";
-                showToast("Audio Briefing Playing");
+            const audio = document.getElementById("heroAudio");
+            const icon = document.getElementById("heroAudioIcon");
+            const status = document.getElementById("heroAudioStatus");
+
+            if (audio.paused) {
+
+                audio.play()
+                    .then(() => {
+                        icon.classList.remove("fa-play");
+                        icon.classList.add("fa-pause");
+                        status.textContent = "Playing Audio Message...";
+                    })
+                    .catch(error => {
+                        console.error("Audio playback error:", error);
+                        status.textContent = "Unable to play audio. Check the file path.";
+                    });
+
             } else {
-                heroAudioPlaying = false;
-                icon.className = "fas fa-play text-xs ml-0.5";
-                status.innerText = "Constituency Briefing (0:45)";
+
+                audio.pause();
+
+                icon.classList.remove("fa-pause");
+                icon.classList.add("fa-play");
+
+                status.textContent = "Audio Paused";
             }
+
+            audio.onended = function() {
+
+                icon.classList.remove("fa-pause");
+                icon.classList.add("fa-play");
+
+                status.textContent = "Constituency Briefing";
+            };
         }
 
         let podcastPlaying = false;
