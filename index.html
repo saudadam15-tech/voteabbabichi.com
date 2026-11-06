@@ -539,35 +539,52 @@
                 
                 <!-- Main Featured Interactive Video Player Component -->
                 <div class="lg:col-span-8 bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl">
-                    <div class="relative bg-black aspect-video flex items-center justify-center group overflow-hidden" id="video-container">
-                        
-                        <!-- Visual Mockup Canvas/Poster for Video -->
-                        <div id="video-poster" class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1200&q=80');">
+                    <div class="relative bg-black aspect-video overflow-hidden"id="video-container">
+                        <video
+                            id="main-video-player"
+                            class="w-full h-full object-contain hidden"
+                            controls
+                            playsinline
+                            preload="metadata"
+                            poster="assets/images/video-poster.jpg">
+
+                            Your browser does not support HTML5 video.
+                        </video>
+
+                        <!-- Video Poster -->
+                        <div id="video-poster"
+                            class="absolute inset-0 bg-cover bg-center"
+                            style="background-image: url('assets/images/video-poster.jpg');">
+
                             <div class="absolute inset-0 bg-slate-950/60 flex flex-col justify-between p-6">
+
                                 <span class="inline-block bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider self-start">
                                     Featured Video Briefing
                                 </span>
+
                                 <div>
-                                    <h3 class="text-xl sm:text-2xl font-bold text-white mb-1" id="current-video-title">Plenary Debate: Sponsoring Infrastructure Development Bills</h3>
-                                    <p class="text-xs text-slate-300" id="current-video-desc">Hon. Abubakar Kabir Abubakar addressing the House on rural road networks and power grid extension.</p>
+                                    <h3 id="current-video-title"
+                                        class="text-xl sm:text-2xl font-bold text-white mb-1">
+                                        Plenary Debate: Sponsoring Infrastructure Bills
+                                    </h3>
+
+                                    <p id="current-video-desc"
+                                    class="text-xs text-slate-300">
+                                        Hon. Abubakar Kabir Abubakar addressing the House.
+                                    </p>
                                 </div>
+
                             </div>
-                        </div>
 
-                        <!-- Video Overlay Play Button -->
-                        <button onclick="playMainVideo()" id="video-play-btn" class="relative z-10 w-20 h-20 bg-red-600 hover:bg-red-700 text-white rounded-full flex items-center justify-center text-2xl shadow-2xl transition transform hover:scale-110 focus:outline-none">
-                            <i class="fas fa-play ml-1"></i>
-                        </button>
+                            <button onclick="playMainVideo()"
+                                    class="absolute inset-0 m-auto w-20 h-20 bg-red-600 hover:bg-red-700 text-white rounded-full flex items-center justify-center text-2xl shadow-2xl transition hover:scale-110">
 
-                        <!-- Video Player simulation overlay when playing -->
-                        <div id="video-playing-state" class="hidden absolute inset-0 bg-slate-950 flex flex-col items-center justify-center p-6 text-center">
-                            <div class="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mb-4"></div>
-                            <p class="text-white font-bold text-lg">Playing Video Stream...</p>
-                            <p class="text-slate-400 text-xs mt-1">"Constituency Keynote Speech — House of Reps Session"</p>
-                            <button onclick="stopMainVideo()" class="mt-6 bg-slate-800 hover:bg-slate-700 text-xs text-white px-4 py-2 rounded-lg border border-slate-700">
-                                <i class="fas fa-stop mr-1"></i> Close Stream
+                                <i class="fas fa-play ml-1"></i>
+
                             </button>
+
                         </div>
+
                     </div>
 
                     <!-- Video Details Controls -->
@@ -1444,6 +1461,75 @@
         function shareMedia() {
             playAudioClick();
             showToast("Portal link copied to clipboard");
+        }
+        // VIDEO PLAYLIST
+        const videoPlaylist = {
+            1: {
+                title: "Plenary Debate: Sponsoring Infrastructure Bills",
+                description: "Hon. Abubakar Kabir Abubakar addressing the House.",
+                src: "assets/videos/video1.mp4",
+                thumbnail: "assets/images/video-poster.jpg"
+            },
+
+            2: {
+                title: "Flag-off of Mega Youth Grant Empowerment",
+                description: "Constituency empowerment and youth development programme.",
+                src: "assets/videos/video2.mp4",
+                thumbnail: "assets/images/youth-poster.jpg"
+            }
+        };
+
+        let currentVideo = 1;
+
+        // PLAY VIDEO
+        function playMainVideo() {
+
+            const video = videoPlaylist[currentVideo];
+
+            const player = document.getElementById("main-video-player");
+            const poster = document.getElementById("video-poster");
+
+            player.src = video.src;
+
+            poster.classList.add("hidden");
+            player.classList.remove("hidden");
+
+            player.play().catch(error => {
+                console.log("Video playback error:", error);
+            });
+        }
+
+        // SELECT VIDEO
+        function selectVideo(videoNumber) {
+
+            const video = videoPlaylist[videoNumber];
+
+            if (!video) return;
+
+            currentVideo = videoNumber;
+
+            const player = document.getElementById("main-video-player");
+            const poster = document.getElementById("video-poster");
+
+            // Stop previous video
+            player.pause();
+            player.removeAttribute("src");
+            player.load();
+
+            // Update video information
+            document.getElementById("current-video-title").textContent =
+                video.title;
+
+            document.getElementById("current-video-desc").textContent =
+                video.description;
+
+            // Update thumbnail
+            poster.style.backgroundImage =
+                `url('${video.thumbnail}')`;
+
+            // Show poster
+            player.classList.add("hidden");
+            poster.classList.remove("hidden");
         }
     </script>
 </body>
