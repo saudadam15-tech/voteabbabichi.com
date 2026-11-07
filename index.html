@@ -828,46 +828,53 @@
 
             <!-- Tab Content 1: Volunteer Form -->
             <div id="tab-volunteer-content" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-xl">
-                <form onsubmit="handleVolunteerSubmit(event)" class="space-y-6">
+                <form id="volunteer-form" onsubmit="handleVolunteerSubmit(event)" class="space-y-6" novalidate>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Full Name *</label>
-                            <input type="text" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition" placeholder="e.g. Ibrahim Abubakar">
+                            <input name="full_name" type="text" maxlength="120" autocomplete="name" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition" placeholder="e.g. Ibrahim Abubakar">
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Phone Number *</label>
-                            <input type="tel" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition" placeholder="0800 000 0000">
+                            <input name="phone" type="tel" maxlength="30" autocomplete="tel" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition" placeholder="0800 000 0000">
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Bichi Ward / Location *</label>
-                            <select required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition">
+                            <select name="ward" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition">
                                 <option value="">Select Ward</option>
-                                <option value="bichi-urban">Badume Ward</option>
-                                <option value="danbatta-road">Bichi Ward</option>
-                                <option value="badume">Danzabuwa Ward</option>
-                                <option value="fagwalawa">Fagolo Ward</option>
-                                <option value="kyauta">Kaukau Ward</option>
-                                <option value="other">Kwamarawa Ward</option>
-                                <option value="other">Kyalli Ward</option>
-                                <option value="other">Muntsira Ward</option>
-                                <option value="other">Saye Ward</option>
-                                <option value="other">Waire Ward</option>
-                                <option value="other">Yallami Ward</option> 
-
+                                <option value="badume">Badume Ward</option>
+                                <option value="bichi">Bichi Ward</option>
+                                <option value="danzabuwa">Danzabuwa Ward</option>
+                                <option value="fagolo">Fagolo Ward</option>
+                                <option value="kaukau">Kaukau Ward</option>
+                                <option value="kwamarawa">Kwamarawa Ward</option>
+                                <option value="kyalli">Kyalli Ward</option>
+                                <option value="muntsira">Muntsira Ward</option>
+                                <option value="saye">Saye Ward</option>
+                                <option value="waire">Waire Ward</option>
+                                <option value="yallami">Yallami Ward</option>
                             </select>
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Preferred Volunteer Area</label>
-                            <select class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition">
+                            <select name="volunteer_area" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition">
                                 <option value="grassroots">Grassroots Mobilization</option>
                                 <option value="media">Digital & Social Media</option>
                                 <option value="events">Event Logistics</option>
                                 <option value="youth">Youth & Student Affairs</option>
                             </select>
                         </div>
+                    </div>
+
+                    <div class="flex items-start gap-3 text-xs text-slate-400">
+                        <input id="volunteer-consent" name="consent" type="checkbox" value="yes" required class="mt-0.5 h-4 w-4 rounded border-slate-700 bg-slate-950 text-blue-600 focus:ring-blue-500">
+                        <label for="volunteer-consent">I agree that the Constituency Office may use these details to contact me about volunteer activities. My information will not be displayed publicly.</label>
+                    </div>
+                    <div aria-hidden="true" class="absolute -left-[10000px] top-auto h-px w-px overflow-hidden">
+                        <label>Leave this field empty<input name="website" type="text" tabindex="-1" autocomplete="off"></label>
                     </div>
 
                     <button type="submit" class="w-full bg-secondary-600 hover:bg-secondary-700 text-white font-bold py-4 rounded-xl shadow-lg transition text-base flex items-center justify-center space-x-2">
@@ -879,21 +886,21 @@
 
             <!-- Tab Content 2: Feedback & Project Request Form -->
             <div id="tab-feedback-content" class="hidden bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-xl">
-                <form onsubmit="handleFeedbackSubmit(event)" class="space-y-6">
+                <form id="feedback-form" onsubmit="handleFeedbackSubmit(event)" class="space-y-6" novalidate>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Your Name *</label>
-                            <input type="text" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition" placeholder="Full name">
+                            <input name="name" type="text" maxlength="120" autocomplete="name" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition" placeholder="Optional — leave blank to remain anonymous">
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Email or Phone</label>
-                            <input type="text" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition" placeholder="Contact Info">
+                            <input name="contact" type="text" maxlength="120" autocomplete="email" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition" placeholder="Optional email or phone number">
                         </div>
                     </div>
 
                     <div>
                         <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Category of Feedback</label>
-                        <select class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition">
+                        <select name="category" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition">
                             <option value="water">Water / Borehole</option>
                             <option value="school">School / Education Rehabilitation</option>
                             <option value="road">Road / Streetlight</option>
@@ -904,7 +911,11 @@
 
                     <div>
                         <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Details of Feedback and Project Location *</label>
-                        <textarea required rows="4" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition" placeholder="Describe the specific area in Bichi LG and details of the project..."></textarea>
+                        <textarea name="details" required maxlength="5000" rows="4" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition" placeholder="Describe the specific area in Bichi LG and details of the project..."></textarea>
+                    </div>
+                    <p class="text-xs text-slate-400">You may submit this form anonymously. Your name and contact details are optional. Please do not include sensitive personal information.</p>
+                    <div aria-hidden="true" class="absolute -left-[10000px] top-auto h-px w-px overflow-hidden">
+                        <label>Leave this field empty<input name="website" type="text" tabindex="-1" autocomplete="off"></label>
                     </div>
 
                     <button type="submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 rounded-xl shadow-lg transition text-base flex items-center justify-center space-x-2">
@@ -1420,19 +1431,46 @@
             }
         }
 
-        // Form Handlers
+        // Form Handlers — submissions are stored by the secure Vercel API.
+        async function submitPortalForm(form, endpoint, successMessage) {
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalButton = submitButton.innerHTML;
+            const formData = new FormData(form);
+            const payload = Object.fromEntries(formData.entries());
+            payload.consent = formData.get('consent') === 'yes';
+            submitButton.disabled = true;
+            submitButton.classList.add('opacity-60', 'cursor-not-allowed');
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>Submitting...</span>';
+            try {
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const result = await response.json().catch(() => ({}));
+                if (!response.ok) throw new Error(result.error || 'Submission could not be saved. Please try again.');
+                playAudioClick();
+                showToast(successMessage + (result.reference ? ' Reference: ' + result.reference : ''));
+                form.reset();
+            } catch (error) {
+                showToast(error.message || 'A connection error occurred. Please try again.');
+            } finally {
+                submitButton.disabled = false;
+                submitButton.classList.remove('opacity-60', 'cursor-not-allowed');
+                submitButton.innerHTML = originalButton;
+            }
+        }
+
         function handleVolunteerSubmit(e) {
             e.preventDefault();
-            playAudioClick();
-            showToast("Success! Volunteer registration submitted.");
-            e.target.reset();
+            if (!e.target.reportValidity()) return;
+            submitPortalForm(e.target, '/api/volunteers', 'Thank you! Your volunteer registration has been received.');
         }
 
         function handleFeedbackSubmit(e) {
             e.preventDefault();
-            playAudioClick();
-            showToast("Thank you! Request forwarded to Constituency Office.");
-            e.target.reset();
+            if (!e.target.reportValidity()) return;
+            submitPortalForm(e.target, '/api/feedback', 'Thank you! Your feedback has been received.');
         }
 
         // Toast Helper
