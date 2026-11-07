@@ -546,7 +546,7 @@
                             controls
                             playsinline
                             preload="metadata"
-                            poster="assets/images/video-poster.jpg">
+                            poster="assets/images/postervideo1.png">
 
                             Your browser does not support HTML5 video.
                         </video>
@@ -554,7 +554,7 @@
                         <!-- Video Poster -->
                         <div id="video-poster"
                             class="absolute inset-0 bg-cover bg-center"
-                            style="background-image: url('assets/images/video-poster.jpg');">
+                            style="background-image: url('assets/images/postervideo1.png');">
 
                             <div class="absolute inset-0 bg-slate-950/60 flex flex-col justify-between p-6">
 
@@ -610,7 +610,7 @@
                     <!-- Playlist Item 1 -->
                     <div onclick="selectVideo(1)" class="bg-slate-900 border border-slate-800 hover:border-blue-500/50 rounded-xl p-3 cursor-pointer transition flex space-x-3 group active-video-item">
                         <div class="w-24 h-16 bg-slate-800 rounded-lg overflow-hidden relative flex-shrink-0">
-                            <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=300&q=80" alt="Debate" class="w-full h-full object-cover">
+                            <img src="assets/images/postervideo1.png" alt="Debate" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-slate-950/40 flex items-center justify-center">
                                 <i class="fas fa-play text-xs text-white"></i>
                             </div>
@@ -624,7 +624,7 @@
                     <!-- Playlist Item 2 -->
                     <div onclick="selectVideo(2)" class="bg-slate-900 border border-slate-800 hover:border-blue-500/50 rounded-xl p-3 cursor-pointer transition flex space-x-3 group">
                         <div class="w-24 h-16 bg-slate-800 rounded-lg overflow-hidden relative flex-shrink-0">
-                            <img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?auto=format&fit=crop&w=300&q=80" alt="Flagoff" class="w-full h-full object-cover">
+                            <img src="assets/images/postervideo2.png" alt="Flagoff" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-slate-950/40 flex items-center justify-center">
                                 <i class="fas fa-play text-xs text-white"></i>
                             </div>
@@ -726,7 +726,7 @@
             <!-- Gallery Filter Buttons -->
             <div class="flex flex-wrap justify-center gap-2 mb-10" id="gallery-filters">
                 <button onclick="filterGallery('all', this)" class="px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white transition gallery-filter-btn active">All Photos</button>
-               <button onclick="filterGallery('House Engagements', this)" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition gallery-filter-btn">House Engagements</button>
+                <button onclick="filterGallery('House Engagements', this)" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition gallery-filter-btn">House Engagements</button>
                 <button onclick="filterGallery('commissioning', this)" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition gallery-filter-btn">Commissioning</button>
                 <button onclick="filterGallery('townhall', this)" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition gallery-filter-btn">Town Halls</button>
                 <button onclick="filterGallery('schools', this)" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition gallery-filter-btn">Education</button>
@@ -1101,12 +1101,12 @@
         // Sample Photo Gallery Data
         const galleryData = [
             { id: 1, tag: "House Engagement", title: "Planerary Session", img: "assets/gallery/townhall1.jpeg"},
-            { id: 2, tag: "commissioning", title: "Borehole Project Flagoff", img: "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=600&q=80" },
+            { id: 2, tag: "commissioning", title: "Borehole Project Flagoff", img: "assets/gallery/townhall11.jpeg" },
             { id: 3, tag: "townhall", title: "Constituency Stakeholders Meeting", img: "assets/gallery/townhall7.jpeg"},
-            { id: 4, tag: "schools", title: "New Classroom Block Inspection", img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" },
+            { id: 4, tag: "schools", title: "New Classroom Block Inspection", img: "assets/gallery/education1.jpeg" },
             { id: 5, tag: "commissioning", title: "Youth Empowerment Grant Distribution", img: "assets/gallery/townhall4.jpeg" },
             { id: 6, tag: "townhall", title: "Leadership Dialogue", img: "assets/gallery/townhall9.jpeg"},
-            { id: 7, tag: "schools", title: "Scholarship Scheme Presentation", img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" }
+            { id: 7, tag: "schools", title: "Scholarship Scheme Presentation", img: "assets/gallery/education2.jpeg" }
         ];
 
         // Web Audio API Sound generator for rich click feedback
