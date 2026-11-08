@@ -744,9 +744,9 @@
                 <button onclick="filterGallery('schools', this)" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition gallery-filter-btn">Education</button>
             </div>
 
-            <!-- Gallery Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="gallery-grid">
-                <!-- Gallery items populated by JavaScript -->
+                    <!-- Photo Slideshow -->
+            <div id="gallery-grid" class="relative max-w-5xl mx-auto">
+                <!-- Slideshow populated by JavaScript -->
             </div>
         </div>
     </section>
@@ -1168,7 +1168,7 @@
 
         // Sample Photo Gallery Data
         const galleryData = [
-            { id: 1, tag: "House Engagement", title: "Planerary Session", img: "assets/gallery/townhall1.jpeg"},
+            { id: 1, tag: "House Engagements", title: "Planerary Session", img: "assets/gallery/townhall1.jpeg"},
             { id: 2, tag: "commissioning", title: "Borehole Project Flagoff", img: "assets/gallery/townhall11.jpeg" },
             { id: 3, tag: "townhall", title: "Constituency Stakeholders Meeting", img: "assets/gallery/townhall7.jpeg"},
             { id: 4, tag: "schools", title: "New Classroom Block Inspection", img: "assets/gallery/education1.jpeg" },
@@ -1263,40 +1263,189 @@
             }
         }
 
-        // Render Photo Gallery
+        // Gallery Slideshow Variables
+        let gallerySlides = [];
+        let currentGalleryIndex = 0;
+        let galleryTimer = null;
+
+        // Render Photo Gallery Slideshow
         function renderGallery(items) {
             const container = document.getElementById('gallery-grid');
-            container.innerHTML = '';
 
-            items.forEach(item => {
-                const div = document.createElement('div');
-                div.className = "relative rounded-xl overflow-hidden h-44 group cursor-pointer border border-slate-800 bg-slate-900";
-                div.onclick = () => { showToast(`Viewing: ${item.title}`); playAudioClick(); };
-                div.innerHTML = `
-                    <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-3">
-                        <span class="text-xs font-bold text-white">${item.title}</span>
-                        <span class="text-[10px] text-blue-400 capitalize">${item.tag}</span>
+            // Stop previous slideshow
+            if (galleryTimer) {
+                clearInterval(galleryTimer);
+                galleryTimer = null;
+            }
+
+            gallerySlides = items;
+            currentGalleryIndex = 0;
+
+            if (!items || items.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center text-slate-400 py-16">
+                        No photographs available in this category.
                     </div>
                 `;
-                container.appendChild(div);
+                return;
+            }
+
+            container.innerHTML = `
+                <div class="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 shadow-2xl">
+
+                    <!-- Main Slide -->
+                    <div class="relative h-[300px] sm:h-[450px] md:h-[550px]">
+                        <img id="gallery-slide-image"
+                            src="${items[0].img}"
+                            alt="${items[0].title}"
+                            class="w-full h-full object-cover transition-opacity duration-500">
+
+                        <!-- Image Caption -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex flex-col justify-end p-6 sm:p-10">
+
+                            <span id="gallery-slide-category"
+                                class="text-xs font-bold text-blue-400 uppercase tracking-widest mb-2">
+                                ${items[0].tag}
+                            </span>
+
+                            <h3 id="gallery-slide-title"
+                                class="text-xl sm:text-3xl font-black text-white">
+                                ${items[0].title}
+                            </h3>
+                        </div>
+
+                        <!-- Previous Button -->
+                        <button onclick="changeGallerySlide(-1)"
+                                aria-label="Previous photograph"
+                                class="absolute left-3 top-1/2 -translate-y-1/2 bg-slate-950/70 hover:bg-blue-600 text-white w-11 h-11 rounded-full flex items-center justify-center transition">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+
+                        <!-- Next Button -->
+                        <button onclick="changeGallerySlide(1)"
+                                aria-label="Next photograph"
+                                class="absolute right-3 top-1/2 -translate-y-1/2 bg-slate-950/70 hover:bg-blue-600 text-white w-11 h-11 rounded-full flex items-center justify-center transition">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+
+                        <!-- Slide Counter -->
+                        <div id="gallery-slide-counter"
+                            class="absolute top-4 right-4 bg-slate-950/70 text-white text-xs px-3 py-2 rounded-full">
+                            1 / ${items.length}
+                        </div>
+                    </div>
+
+                    <!-- Slideshow Indicators -->
+                    <div id="gallery-slide-dots"
+                        class="flex justify-center items-center gap-2 py-5 bg-slate-950">
+                        ${items.map((item, index) => `
+                            <button onclick="goToGallerySlide(${index})"
+                                    aria-label="Go to photograph ${index + 1}"
+                                    class="gallery-dot w-2.5 h-2.5 rounded-full transition ${
+                                        index === 0 ? 'bg-blue-500 scale-125' : 'bg-slate-600'
+                                    }">
+                            </button>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+
+            startGallerySlideshow();
+        }
+
+        // Change Photograph
+        function changeGallerySlide(direction) {
+            if (!gallerySlides.length) return;
+
+            currentGalleryIndex =
+                (currentGalleryIndex + direction + gallerySlides.length)
+                % gallerySlides.length;
+
+            updateGallerySlide();
+            resetGallerySlideshow();
+        }
+
+        // Go to Selected Photograph
+        function goToGallerySlide(index) {
+            if (index < 0 || index >= gallerySlides.length) return;
+
+            currentGalleryIndex = index;
+            updateGallerySlide();
+            resetGallerySlideshow();
+        }
+
+        // Update Slideshow Display
+        function updateGallerySlide() {
+            const item = gallerySlides[currentGalleryIndex];
+
+            const image = document.getElementById('gallery-slide-image');
+            const title = document.getElementById('gallery-slide-title');
+            const category = document.getElementById('gallery-slide-category');
+            const counter = document.getElementById('gallery-slide-counter');
+
+            if (!image || !item) return;
+
+            image.style.opacity = '0';
+
+            setTimeout(() => {
+                image.src = item.img;
+                image.alt = item.title;
+                title.textContent = item.title;
+                category.textContent = item.tag;
+                image.style.opacity = '1';
+            }, 200);
+
+            counter.textContent =
+                `${currentGalleryIndex + 1} / ${gallerySlides.length}`;
+
+            document.querySelectorAll('.gallery-dot').forEach((dot, index) => {
+                dot.className = `gallery-dot w-2.5 h-2.5 rounded-full transition ${
+                    index === currentGalleryIndex
+                        ? 'bg-blue-500 scale-125'
+                        : 'bg-slate-600'
+                }`;
             });
+        }
+
+        // Automatic Slideshow
+        function startGallerySlideshow() {
+            if (gallerySlides.length <= 1) return;
+
+            galleryTimer = setInterval(() => {
+                changeGallerySlide(1);
+            }, 5000);
+        }
+
+        // Restart Timer
+        function resetGallerySlideshow() {
+            if (galleryTimer) {
+                clearInterval(galleryTimer);
+            }
+
+            startGallerySlideshow();
         }
 
         // Gallery Filter Logic
         function filterGallery(tag, btn) {
             playAudioClick();
+
             document.querySelectorAll('#gallery-filters .gallery-filter-btn').forEach(b => {
                 b.className = "px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition gallery-filter-btn";
             });
+
             btn.className = "px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white transition gallery-filter-btn active";
 
             if (tag === 'all') {
                 renderGallery(galleryData);
             } else {
-                renderGallery(galleryData.filter(g => g.tag === tag));
+                const filtered = galleryData.filter(g =>
+                    g.tag.toLowerCase() === tag.toLowerCase()
+                );
+
+                renderGallery(filtered);
             }
         }
+
 
         // Modal Handler Logic
         function openProjectModal(id) {
