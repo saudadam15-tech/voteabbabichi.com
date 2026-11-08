@@ -546,7 +546,7 @@
                             controls
                             playsinline
                             preload="metadata"
-                            poster="assets/images/postervideo1.png">
+                            poster="video-poster">
 
                             Your browser does not support HTML5 video.
                         </video>
@@ -634,7 +634,19 @@
                             <span class="text-[10px] text-slate-400 block mt-1"><i class="far fa-clock mr-1"></i> 5:20 mins</span>
                         </div>
                     </div>
-
+                    <!-- Playlist Item 3 -->
+                    <div onclick="selectVideo(3)" class="bg-slate-900 border border-slate-800 hover:border-blue-500/50 rounded-xl p-3 cursor-pointer transition flex space-x-3 group">
+                        <div class="w-24 h-16 bg-slate-800 rounded-lg overflow-hidden relative flex-shrink-0">
+                            <img src="assets/images/postervideo2.png" alt="Flagoff" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-slate-950/40 flex items-center justify-center">
+                                <i class="fas fa-play text-xs text-white"></i>
+                            </div>
+                        </div>
+                        <div class="overflow-hidden">
+                            <h4 class="text-xs font-bold text-white group-hover:text-blue-400 transition truncate">Commissioning of solar</h4>
+                            <span class="text-[10px] text-slate-400 block mt-1"><i class="far fa-clock mr-1"></i> 5:20 mins</span>
+                        </div>
+                    </div>
                     <!-- Audio Message Broadcast Widget Box -->
                     <div class="mt-6 bg-gradient-to-br from-blue-950 to-slate-900 border border-blue-800/40 rounded-xl p-5 shadow-lg">
                         <div class="flex items-center space-x-2 text-blue-400 text-xs font-bold uppercase mb-3">
@@ -953,8 +965,8 @@
                 <div>
                     <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-4">Constituency Office</h4>
                     <p class="text-xs text-slate-400">
-                        <i class="fas fa-location-dot text-red-500 mr-2"></i> Bichi Main Office, Kano State<br>
-                        <i class="fas fa-envelope text-blue-400 mr-2 mt-2"></i> info@abbabichi.ng
+                        <i class="fas fa-location-dot text-red-500 mr-2"></i> Prestige House, Bichi LG, Kano State<br>
+                        <i class="fas fa-envelope text-blue-400 mr-2 mt-2"></i> info@abbabichi.com
                     </p>
                 </div>
             </div>
@@ -1349,9 +1361,12 @@
             if (id === 1) {
                 document.getElementById('current-video-title').innerText = "Plenary Debate: Sponsoring Infrastructure Development Bills";
                 document.getElementById('current-video-desc').innerText = "Hon. Abubakar Kabir Abubakar addressing the House on rural road networks and power grid extension.";
-            } else {
+            } else if (id === 2) {
                 document.getElementById('current-video-title').innerText = "Flag-off of Mega Youth Empowerment Grant";
                 document.getElementById('current-video-desc').innerText = "Official ceremony presenting equipment grants and startup funding to Bichi youth.";
+            } else {
+                document.getElementById('current-video-title').innerText = "Commissioning of Solar-Powered Borehole Systems";
+                document.getElementById('current-video-desc').innerText = "Hon. Abubakar Kabir Abubakar inaugurating new solar-powered boreholes across Bichi LG.";
             }
             stopMainVideo();
             showToast("Video stream loaded");
@@ -1561,14 +1576,21 @@
                 title: "Plenary Debate: Sponsoring Infrastructure Bills",
                 description: "Hon. Abubakar Kabir Abubakar addressing the House.",
                 src: "assets/videos/video1.mp4",
-                thumbnail: "assets/images/video-poster.jpg"
+                thumbnail: "assets/images/postervideo1.png"
             },
 
             2: {
                 title: "Flag-off of Mega Youth Grant Empowerment",
                 description: "Constituency empowerment and youth development programme.",
                 src: "assets/videos/video2.mp4",
-                thumbnail: "assets/images/youth-poster.jpg"
+                thumbnail: "assets/images/postervideo2.png"
+            }, 
+
+            3: {
+                title: "Solar",
+                description: "Commissioning of Solar-Powered Borehole Systems",
+                src: "assets/videos/video3.mp4",
+                thumbnail: "assets/images/postervideo1.png"
             }
         };
 
