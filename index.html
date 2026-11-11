@@ -643,6 +643,19 @@
                             </div>
                         </div>
                         <div class="overflow-hidden">
+                            <h4 class="text-xs font-bold text-white group-hover:text-blue-400 transition truncate">Flag-off of Mega Youth Grant Empowerment</h4>
+                            <span class="text-[10px] text-slate-400 block mt-1"><i class="far fa-clock mr-1"></i> 5:20 mins</span>
+                        </div>
+                    </div>
+                      <!-- Playlist Item 4 -->
+                    <div onclick="selectVideo(4)" class="bg-slate-900 border border-slate-800 hover:border-blue-500/50 rounded-xl p-3 cursor-pointer transition flex space-x-3 group">
+                        <div class="w-24 h-16 bg-slate-800 rounded-lg overflow-hidden relative flex-shrink-0">
+                            <img src="assets/images/postervideo3.png" alt="Flagoff" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-slate-950/40 flex items-center justify-center">
+                                <i class="fas fa-play text-xs text-white"></i>
+                            </div>
+                        </div>
+                        <div class="overflow-hidden">
                             <h4 class="text-xs font-bold text-white group-hover:text-blue-400 transition truncate">Stakeholders Meeting</h4>
                             <span class="text-[10px] text-slate-400 block mt-1"><i class="far fa-clock mr-1"></i> 5:20 mins</span>
                         </div>
@@ -1739,6 +1752,9 @@
             } else if (id === 2) {
                 document.getElementById('current-video-title').innerText = "Flag-off of Mega Youth Empowerment Grant";
                 document.getElementById('current-video-desc').innerText = "Official ceremony presenting equipment grants and startup funding to Bichi youth.";
+            } else if (id === 3) {
+                document.getElementById('current-video-title').innerText = "Flag-off of Mega Youth Empowerment Grant";
+                document.getElementById('current-video-desc').innerText = "Official ceremony presenting equipment grants and startup funding to Bichi youth."; 
             } else {
                 document.getElementById('current-video-title').innerText = "Commissioning of Solar-Powered Borehole Systems";
                 document.getElementById('current-video-desc').innerText = "Hon. Abubakar Kabir Abubakar inaugurating new solar-powered boreholes across Bichi LG.";
@@ -1965,6 +1981,12 @@
                 title: "Stakeholders Engagement",
                 description: "Consultation meeting with party executives, elders, and ward representatives.",
                 src: "assets/videos/video3.mp4",
+                thumbnail: "assets/images/postervideo3.png"
+            },
+            4: {
+                title: "Stakeholders Engagement",
+                description: "Consultation meeting with party executives, elders, and ward representatives.",
+                src: "assets/videos/video4.mp4",
                 thumbnail: "assets/images/postervideo3.png"
             }
         };
